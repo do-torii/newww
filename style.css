@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f6f8;
+  color: #222;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.card,
+.result {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.grid,
+.income-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.grid.three {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.remain-box {
+  background: #f1f5ff;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.remain-box span {
+  display: block;
+  font-size: 14px;
+  color: #555;
+}
+
+.remain-box strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 22px;
+}
+
+.bonus-rate-box {
+  margin-top: 20px;
+  max-width: 220px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+th {
+  background: #fafafa;
+}
+
+.result {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.result span {
+  color: #555;
+  font-size: 14px;
+}
+
+.result strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 22px;
+}
+
+@media (max-width: 720px) {
+  .grid.three {
+    grid-template-columns: 1fr;
+  }
+}

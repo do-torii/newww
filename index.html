@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>청년도약계좌 검산표</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>청년도약계좌 정부기여금 검산표</h1>
+
+    <section class="card">
+      <h2>가입시기</h2>
+
+      <div class="grid three">
+        <label>
+          가입연도
+          <select id="startYear"></select>
+        </label>
+
+        <label>
+          가입월
+          <select id="startMonth"></select>
+        </label>
+
+        <div class="remain-box">
+          <span>2026년 7월 기준 남은 개월수</span>
+          <strong id="remainingMonths">0개월</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>연차별 소득구간</h2>
+      <div id="incomeYears" class="income-grid"></div>
+
+      <div class="bonus-rate-box">
+        <label>
+          우대금리
+          <select id="bonusRate"></select>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>월별 납입금 / 정부기여금</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>회차</th>
+              <th>납입월</th>
+              <th>연차</th>
+              <th>납입금</th>
+              <th>정부기여금1</th>
+              <th>정부기여금2</th>
+              <th>정부기여금 합계</th>
+            </tr>
+          </thead>
+          <tbody id="paymentRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="result">
+      <div>
+        <span>총납입원금</span>
+        <strong id="totalPayment">0원</strong>
+      </div>
+
+      <div>
+        <span>원금에 대한 이자</span>
+        <strong id="principalInterest">0원</strong>
+      </div>
+
+      <div>
+        <span>정부기여금1 + 정부기여금2</span>
+        <strong id="totalGov">0원</strong>
+      </div>
+
+      <div>
+        <span>정부기여금에 대한 이자</span>
+        <strong id="govInterest">0원</strong>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
