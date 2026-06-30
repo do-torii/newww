@@ -38,6 +38,7 @@ const startMonthEl = document.getElementById("startMonth");
 const remainingMonthsEl = document.getElementById("remainingMonths");
 const incomeYearsEl = document.getElementById("incomeYears");
 const bonusRateEl = document.getElementById("bonusRate");
+const bulkPaymentEl = document.getElementById("bulkPayment");
 const paymentRowsEl = document.getElementById("paymentRows");
 
 const totalPaymentEl = document.getElementById("totalPayment");
@@ -68,8 +69,9 @@ function initOptions() {
 
   for (let year = 1; year <= 5; year++) {
     const label = document.createElement("label");
+    label.className = "income-year-row";
     label.innerHTML = `
-      ${year}년차 소득구간
+      <span>${year}년차</span>
       <select id="incomeYear${year}">
         ${Object.entries(incomeRules)
           .map(([key, rule]) => `<option value="${key}">${rule.label}</option>`)
@@ -91,6 +93,14 @@ function initOptions() {
 
   bonusRateEl.appendChild(option);
   }
+
+  for (let amount = 0; amount <= MAX_PAYMENT; amount += 10000) {
+    const option = document.createElement("option");
+    option.value = amount;
+    option.textContent = `${amount.toLocaleString("ko-KR")}원`;
+    if (amount === MAX_PAYMENT) option.selected = true;
+    bulkPaymentEl.appendChild(option);
+  }
 }
 
 function createPaymentOptions() {
@@ -110,9 +120,7 @@ function renderRows() {
     const row = document.createElement("tr");
 
     row.innerHTML = `
-      <td>${i + 1}차</td>
-      <td class="payment-date"></td>
-      <td class="year-round"></td>
+      <td class="payment-info"></td>
       <td>
         <select class="payment-select">
           ${createPaymentOptions()}
@@ -130,6 +138,14 @@ function renderRows() {
     select.value = "700000";
     select.addEventListener("change", updateAll);
   });
+}
+
+function setAllPayments() {
+  document.querySelectorAll(".payment-select").forEach((select) => {
+    select.value = bulkPaymentEl.value;
+  });
+
+  updateAll();
 }
 
 function getPaymentDate(index) {
@@ -222,10 +238,8 @@ function updateAll() {
 
     const gov = calculateGov(payment, rule, paymentDate.year, paymentDate.month);
 
-    row.querySelector(".payment-date").textContent =
-      `${paymentDate.year}년 ${paymentDate.month}월`;
-
-    row.querySelector(".year-round").textContent = `${yearRound}년차`;
+    row.querySelector(".payment-info").textContent =
+      `${index + 1}차 (${paymentDate.year}년 ${paymentDate.month}월 / ${yearRound}년차)`;
 
     row.querySelector(".gov1").textContent = formatWon(gov.gov1);
     row.querySelector(".gov2").textContent = formatWon(gov.gov2);
@@ -251,6 +265,7 @@ updateAll();
 startYearEl.addEventListener("change", updateAll);
 startMonthEl.addEventListener("change", updateAll);
 bonusRateEl.addEventListener("change", updateAll);
+bulkPaymentEl.addEventListener("change", setAllPayments);
 
 document.querySelectorAll("[id^='incomeYear']").forEach((select) => {
   select.addEventListener("change", updateAll);

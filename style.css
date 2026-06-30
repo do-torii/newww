@@ -24,11 +24,27 @@ body {
   box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
-.grid,
-.income-grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
+}
+
+.income-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.income-year-row {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  align-items: center;
+  max-width: 720px;
+}
+
+.income-year-row select {
+  width: 100%;
 }
 
 .grid.three {
@@ -68,8 +84,23 @@ select {
 }
 
 .bonus-rate-box {
-  margin-top: 20px;
   max-width: 220px;
+}
+
+.bulk-payment-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: #f1f5ff;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.bulk-payment-box select {
+  min-width: 130px;
 }
 
 .table-wrap {
@@ -91,6 +122,10 @@ td {
 
 th {
   background: #fafafa;
+}
+
+.payment-info {
+  white-space: nowrap;
 }
 
 .result {

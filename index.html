@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>청년도약계좌 검산표</title>
+  <title>청도계 vs. 청미적</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="container">
-    <h1>청년도약계좌 정부기여금 검산표</h1>
+    <h1>청년도약계좌 갈아탈까?</h1>
 
     <section class="card">
       <h2>가입시기</h2>
@@ -31,28 +31,36 @@
       </div>
     </section>
 
-    <section class="card">
-      <h2>연차별 소득구간</h2>
-      <div id="incomeYears" class="income-grid"></div>
+    <section class="card bonus-rate-card">
+      <h2>우대금리</h2>
 
       <div class="bonus-rate-box">
         <label>
-          우대금리
+          우대금리 선택
           <select id="bonusRate"></select>
         </label>
       </div>
     </section>
 
     <section class="card">
+      <h2>연차별 소득구간</h2>
+      <div id="incomeYears" class="income-grid"></div>
+    </section>
+
+    <section class="card">
       <h2>월별 납입금 / 정부기여금</h2>
+
+      <div class="bulk-payment-box">
+        <label for="bulkPayment">전체 납입금을</label>
+        <select id="bulkPayment"></select>
+        <span>으로 설정</span>
+      </div>
 
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>회차</th>
-              <th>납입월</th>
-              <th>연차</th>
+              <th>회차 (납입월 / 연차)</th>
               <th>납입금</th>
               <th>정부기여금1</th>
               <th>정부기여금2</th>
