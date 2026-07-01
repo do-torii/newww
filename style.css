@@ -16,14 +16,56 @@ body {
 }
 
 h1 {
+  margin: 8px 0 14px;
   color: #23452f;
+  font-size: clamp(32px, calc(6vw - 2px), 50px);
+  line-height: 1.18;
+  letter-spacing: -1.5px;
+}
+
+.page-intro {
+  margin-bottom: 30px;
+  padding: 8px 4px 0;
+}
+
+.intro-label,
+.intro-description {
+  margin: 0;
+}
+
+.intro-label {
+  color: #3f6b4d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.intro-description {
+  color: #6f756f;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .card h2 {
   margin-top: 0;
+  margin-bottom: 0;
   color: #2d563b;
   font-weight: 800;
   line-height: 1.25;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+  text-align: right;
 }
 
 .card,
@@ -293,6 +335,16 @@ th:nth-child(n + 3) {
 @media (max-width: 720px) {
   .grid.three {
     grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .section-heading p {
+    text-align: left;
   }
 
   .gov1,
