@@ -145,6 +145,40 @@ th {
   font-size: 22px;
 }
 
+.effective-rate-result {
+  padding: 14px;
+  background: #f1f5ff;
+  border-radius: 12px;
+}
+
+.effective-rate-result small {
+  display: block;
+  margin-top: 6px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.section-description {
+  margin: -8px 0 18px;
+  color: #666;
+}
+
+.future-savings-options {
+  margin-bottom: 20px;
+}
+
+.future-result {
+  margin-bottom: 0;
+  background: #f8fafc;
+  box-shadow: none;
+}
+
+.future-maturity-result {
+  padding: 14px;
+  background: #fff3e8;
+  border-radius: 12px;
+}
+
 @media (max-width: 720px) {
   .grid.three {
     grid-template-columns: 1fr;
