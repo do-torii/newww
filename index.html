@@ -9,10 +9,19 @@
 <body>
   <main class="container">
     <header class="page-intro">
-      <p class="intro-label">예시</p>
-      <h1>청년도약계좌 갈아탈까?</h1>
-      <p class="intro-description">예시</p>
+      <p class="intro-label">청년도약계좌 갈아탈까?</p>
+      <h1>청도계 vs. 청미적</h1>
+      <p class="intro-description">변동금리를 반영해 청년도약계좌 예상 만기 금액을 계산해요!</p>
     </header>
+
+    <aside class="notice-box" aria-label="이용 안내">
+      <div class="notice-icon" aria-hidden="true">!</div>
+      <strong>이용 전 확인해 주세요</strong>
+      <ul>
+  <li>본 계산기는 참고용으로, 실제 만기 수령액은 은행의 일수 계산 방식, 금리 변동, 납입일, 상품 약관 등에 따라 차이가 발생할 수 있습니다.</li>
+  <li>매월 1일 납입을 기준으로 계산하며, 기본금리는 가입 후 3년간 연 4.5%, 이후 2년간 연 3.0%를 적용합니다.</li>
+</ul>
+    </aside>
 
     <section class="card">
       <div class="section-heading">
@@ -95,6 +104,54 @@
       </div>
     </section>
 
+    <section class="card early-cancel-card">
+      <div class="section-heading">
+        <h2>2026년 7월 해지 예상</h2>
+        <p>청년미래적금 전환 특별중도해지 기준입니다.</p>
+      </div>
+
+      <div class="early-summary-grid">
+        <div class="early-main-result">
+          <span>예상 수령액</span>
+          <strong id="earlyMaturityTotal">0원</strong>
+          <small>비과세·우대금리·정부기여금을 패널티 없이 100% 반영합니다.</small>
+        </div>
+
+        <div><span>그동안 납입한 원금</span><strong id="earlyTotalPayment">0원</strong></div>
+        <div><span>만기까지 남은 납입 필요액</span><strong id="remainingRequiredPayment">0원</strong></div>
+
+        <div class="early-benefit-summary">
+          <div class="early-benefit-comparison">
+            <div class="early-benefit-column">
+              <span>현재까지 총혜택</span>
+              <strong id="earlyTotalBenefit">0원</strong>
+
+              <div class="early-benefit-details">
+                <div><span>원금에 대한 이자</span><b id="earlyPrincipalInterest">0원</b></div>
+                <div><span>지급 예상 정부기여금</span><b id="earlyGovSupport">0원</b></div>
+                <div><span>정부기여금에 대한 이자</span><b id="earlyGovInterest">0원</b></div>
+              </div>
+            </div>
+
+            <div class="early-benefit-column additional-benefit-column">
+              <span>만기까지 유지 시 추가 혜택</span>
+              <strong id="additionalTotalBenefit">0원</strong>
+
+              <div class="early-benefit-details">
+                <div><span>추가 원금 이자</span><b id="additionalPrincipalInterest">0원</b></div>
+                <div><span>추가 정부기여금</span><b id="additionalGovSupport">0원</b></div>
+                <div><span>추가 정부기여금 이자</span><b id="additionalGovInterest">0원</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="early-cancel-note">
+        청년미래적금 전환에 따른 특별중도해지를 가정한 예상값이며, 실제 지급액은 가입 은행과 정확한 해지일에 따라 달라질 수 있습니다.
+      </p>
+    </section>
+
     <section class="result">
       <div class="result-highlight">
         <span class="result-title">도약계좌 5년 만기 예상 수령액</span>
@@ -151,6 +208,41 @@
             <div class="rate-row"><span>실질 연이율</span><b id="futureEffectiveAnnualRate">0.00%</b></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="card comparison-card">
+      <div class="section-heading">
+        <h2>도약계좌 vs. 미래적금</h2>
+      </div>
+
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>청년도약계좌</th>
+              <th>청년미래적금</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>총납입원금</th>
+              <td id="comparisonLeapPrincipal">0원</td>
+              <td id="comparisonFuturePrincipal">0원</td>
+            </tr>
+            <tr>
+              <th>총혜택</th>
+              <td id="comparisonLeapBenefit">0원</td>
+              <td id="comparisonFutureBenefit">0원</td>
+            </tr>
+            <tr>
+              <th>실질 연이율</th>
+              <td id="comparisonLeapRate">0.00%</td>
+              <td id="comparisonFutureRate">0.00%</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
   </main>
