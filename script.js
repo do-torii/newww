@@ -39,9 +39,13 @@ const remainingMonthsEl = document.getElementById("remainingMonths");
 const incomeYearsEl = document.getElementById("incomeYears");
 const bonusRateEl = document.getElementById("bonusRate");
 const bulkPaymentEl = document.getElementById("bulkPayment");
+const bulkPaymentModeEl = document.getElementById("bulkPaymentMode");
+const individualPaymentModeEl = document.getElementById("individualPaymentMode");
 const paymentRowsEl = document.getElementById("paymentRows");
 
 const totalPaymentEl = document.getElementById("totalPayment");
+const totalBenefitEl = document.getElementById("totalBenefit");
+const maturityTotalEl = document.getElementById("maturityTotal");
 const principalInterestEl = document.getElementById("principalInterest");
 const totalGovEl = document.getElementById("totalGov");
 const govInterestEl = document.getElementById("govInterest");
@@ -51,6 +55,7 @@ const futureMonthlyPaymentEl = document.getElementById("futureMonthlyPayment");
 const futureBonusRateEl = document.getElementById("futureBonusRate");
 const futureTypeEl = document.getElementById("futureType");
 const futureTotalPaymentEl = document.getElementById("futureTotalPayment");
+const futureTotalBenefitEl = document.getElementById("futureTotalBenefit");
 const futurePrincipalInterestEl = document.getElementById("futurePrincipalInterest");
 const futureGovSupportEl = document.getElementById("futureGovSupport");
 const futureGovInterestEl = document.getElementById("futureGovInterest");
@@ -148,7 +153,10 @@ function renderRows() {
     const row = document.createElement("tr");
 
     row.innerHTML = `
-      <td class="payment-info"></td>
+      <td class="payment-info">
+        <strong class="payment-round"></strong>
+        <span class="payment-meta"></span>
+      </td>
       <td>
         <select class="payment-select">
           ${createPaymentOptions()}
@@ -174,6 +182,22 @@ function setAllPayments() {
   });
 
   updateAll();
+}
+
+function updatePaymentMode() {
+  const isBulkMode = bulkPaymentModeEl.checked;
+
+  bulkPaymentEl.disabled = !isBulkMode;
+
+  document.querySelectorAll(".payment-select").forEach((select) => {
+    select.disabled = isBulkMode;
+  });
+
+  if (isBulkMode) {
+    setAllPayments();
+  } else {
+    updateAll();
+  }
 }
 
 function getPaymentDate(index) {
@@ -272,8 +296,9 @@ function updateAll() {
 
     const gov = calculateGov(payment, rule, paymentDate.year, paymentDate.month);
 
-    row.querySelector(".payment-info").textContent =
-      `${index + 1}차 (${paymentDate.year}년 ${paymentDate.month}월 / ${yearRound}년차)`;
+    row.querySelector(".payment-round").textContent = `${index + 1}차`;
+    row.querySelector(".payment-meta").textContent =
+      `${String(paymentDate.year).slice(-2)}년 ${paymentDate.month}월(${yearRound}년차)`;
 
     row.querySelector(".gov1").textContent = formatWon(gov.gov1);
     row.querySelector(".gov2").textContent = formatWon(gov.gov2);
@@ -287,6 +312,12 @@ function updateAll() {
   });
 
   totalPaymentEl.textContent = formatWon(totalPayment);
+  totalBenefitEl.textContent = formatWon(
+    totalPrincipalInterest + totalGov + totalGovInterest
+  );
+  maturityTotalEl.textContent = formatWon(
+    totalPayment + totalPrincipalInterest + totalGov + totalGovInterest
+  );
   principalInterestEl.textContent = formatWon(totalPrincipalInterest);
   totalGovEl.textContent = formatWon(totalGov);
   govInterestEl.textContent = formatWon(totalGovInterest);
@@ -323,6 +354,9 @@ function updateFutureSavings() {
     : 0;
 
   futureTotalPaymentEl.textContent = formatWon(totalPayment);
+  futureTotalBenefitEl.textContent = formatWon(
+    principalInterest + totalGovSupport + govInterest
+  );
   futurePrincipalInterestEl.textContent = formatWon(principalInterest);
   futureGovSupportEl.textContent = formatWon(totalGovSupport);
   futureGovInterestEl.textContent = formatWon(govInterest);
@@ -332,13 +366,15 @@ function updateFutureSavings() {
 
 initOptions();
 renderRows();
-updateAll();
+updatePaymentMode();
 updateFutureSavings();
 
 startYearEl.addEventListener("change", updateAll);
 startMonthEl.addEventListener("change", updateAll);
 bonusRateEl.addEventListener("change", updateAll);
 bulkPaymentEl.addEventListener("change", setAllPayments);
+bulkPaymentModeEl.addEventListener("change", updatePaymentMode);
+individualPaymentModeEl.addEventListener("change", updatePaymentMode);
 futureMonthlyPaymentEl.addEventListener("change", updateFutureSavings);
 futureBonusRateEl.addEventListener("change", updateFutureSavings);
 futureTypeEl.addEventListener("change", updateFutureSavings);

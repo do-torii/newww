@@ -50,17 +50,25 @@
     <section class="card">
       <h2>월별 납입금 / 정부기여금</h2>
 
-      <div class="bulk-payment-box">
-        <label for="bulkPayment">전체 납입금을</label>
-        <select id="bulkPayment"></select>
-        <span>으로 설정</span>
+      <div class="payment-mode-box">
+        <label class="payment-mode-option">
+          <input type="radio" name="paymentMode" id="bulkPaymentMode" value="bulk" checked />
+          <span>전체 납입금을</span>
+          <select id="bulkPayment"></select>
+          <span>으로 설정</span>
+        </label>
+
+        <label class="payment-mode-option">
+          <input type="radio" name="paymentMode" id="individualPaymentMode" value="individual" />
+          <span>납입금을 개별로 설정</span>
+        </label>
       </div>
 
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>회차 (납입월 / 연차)</th>
+              <th>회차</th>
               <th>납입금</th>
               <th>정부기여금1</th>
               <th>정부기여금2</th>
@@ -73,30 +81,18 @@
     </section>
 
     <section class="result">
-      <div>
-        <span>총납입원금</span>
-        <strong id="totalPayment">0원</strong>
-      </div>
+      <div class="result-highlight">
+        <span class="result-title">도약계좌 5년 만기 예상 수령액</span>
+        <strong class="maturity-amount" id="maturityTotal">0원</strong>
 
-      <div>
-        <span>원금에 대한 이자</span>
-        <strong id="principalInterest">0원</strong>
-      </div>
-
-      <div>
-        <span>정부기여금1 + 정부기여금2</span>
-        <strong id="totalGov">0원</strong>
-      </div>
-
-      <div>
-        <span>정부기여금에 대한 이자</span>
-        <strong id="govInterest">0원</strong>
-      </div>
-
-      <div class="effective-rate-result">
-        <span>실질 연이율</span>
-        <strong id="effectiveAnnualRate">0.00%</strong>
-        <small>(원금이자 + 정부기여금 + 정부기여금 이자) ÷ 총납입원금 ÷ 5</small>
+        <div class="result-breakdown">
+          <div><span>총납입원금</span><b id="totalPayment">0원</b></div>
+          <div><span>총혜택</span><b id="totalBenefit">0원</b></div>
+          <div class="breakdown-detail"><span>└ 원금에 대한 이자</span><b id="principalInterest">0원</b></div>
+          <div class="breakdown-detail"><span>└ 정부기여금1 + 정부기여금2</span><b id="totalGov">0원</b></div>
+          <div class="breakdown-detail"><span>└ 정부기여금에 대한 이자</span><b id="govInterest">0원</b></div>
+          <div class="rate-row"><span>실질 연이율</span><b id="effectiveAnnualRate">0.00%</b></div>
+        </div>
       </div>
     </section>
 
@@ -125,35 +121,18 @@
       </div>
 
       <div class="result future-result">
-        <div>
-          <span>총납입원금</span>
-          <strong id="futureTotalPayment">0원</strong>
-        </div>
+        <div class="result-highlight">
+          <span class="result-title">청년미래적금 3년 만기 예상 수령액</span>
+          <strong class="maturity-amount" id="futureMaturityTotal">0원</strong>
 
-        <div>
-          <span>원금에 대한 이자</span>
-          <strong id="futurePrincipalInterest">0원</strong>
-        </div>
-
-        <div>
-          <span>정부지원금</span>
-          <strong id="futureGovSupport">0원</strong>
-        </div>
-
-        <div>
-          <span>정부지원금에 대한 이자</span>
-          <strong id="futureGovInterest">0원</strong>
-        </div>
-
-        <div class="future-maturity-result">
-          <span>3년 만기 예상 수령액</span>
-          <strong id="futureMaturityTotal">0원</strong>
-        </div>
-
-        <div class="effective-rate-result">
-          <span>실질 연이율</span>
-          <strong id="futureEffectiveAnnualRate">0.00%</strong>
-          <small>(원금이자 + 정부지원금 + 정부지원금 이자) ÷ 총납입원금 ÷ 3</small>
+          <div class="result-breakdown">
+            <div><span>총납입원금</span><b id="futureTotalPayment">0원</b></div>
+            <div><span>총혜택</span><b id="futureTotalBenefit">0원</b></div>
+            <div class="breakdown-detail"><span>└ 원금에 대한 이자</span><b id="futurePrincipalInterest">0원</b></div>
+            <div class="breakdown-detail"><span>└ 정부지원금</span><b id="futureGovSupport">0원</b></div>
+            <div class="breakdown-detail"><span>└ 정부지원금에 대한 이자</span><b id="futureGovInterest">0원</b></div>
+            <div class="rate-row"><span>실질 연이율</span><b id="futureEffectiveAnnualRate">0.00%</b></div>
+          </div>
         </div>
       </div>
     </section>
