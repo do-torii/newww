@@ -274,6 +274,26 @@ select {
   border-radius: 0;
 }
 
+.early-summary-grid .early-paid-principal {
+  background: #dcebdd;
+}
+
+.early-summary-grid .remaining-payment-summary,
+.additional-benefit-column {
+  background: #f2f6f1;
+  color: #284c34;
+}
+
+.early-summary-grid .remaining-payment-summary > span,
+.additional-benefit-column > span {
+  color: #657067;
+}
+
+.early-summary-grid .remaining-payment-summary > strong,
+.additional-benefit-column > strong {
+  color: #284c34;
+}
+
 .early-benefit-comparison {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -283,9 +303,9 @@ select {
 .early-benefit-column {
   min-width: 0;
   padding: 14px;
-  border: 1px solid #dce3da;
+  border: 1px solid #cbdccb;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.6);
+  background: #dcebdd;
 }
 
 .early-benefit-column > strong {
@@ -293,7 +313,12 @@ select {
 }
 
 .additional-benefit-column {
-  background: #edf4ec;
+  background: #f2f6f1;
+  border-color: #dce5da;
+}
+
+.additional-benefit-column .early-benefit-details b {
+  color: #222;
 }
 
 .early-main-result strong {
@@ -580,7 +605,44 @@ th:nth-child(n + 3) {
 
   .early-summary-grid,
   .early-benefit-comparison {
-    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .early-summary-grid > div {
+    padding: 10px;
+  }
+
+  .early-summary-grid strong {
+    font-size: 17px;
+  }
+
+  .early-main-result strong {
+    font-size: 26px;
+  }
+
+  .early-benefit-column {
+    padding: 9px;
+  }
+
+  .early-benefit-column > strong {
+    font-size: 17px;
+  }
+
+  .early-benefit-details {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .early-benefit-details > div {
+    padding: 8px;
+  }
+
+  .early-benefit-details span {
+    font-size: 11px;
+  }
+
+  .early-benefit-details b {
+    font-size: 12px;
   }
 
   .gov1,
