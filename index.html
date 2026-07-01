@@ -23,11 +23,11 @@
 </ul>
     </aside>
 
-    <section class="card">
-      <div class="section-heading">
-        <h2>가입시기</h2>
-      </div>
+    <div class="product-divider first-product-divider" aria-label="청년도약계좌 영역">
+      <span>청년도약계좌</span>
+    </div>
 
+    <section class="card">
       <div class="grid three">
         <label>
           가입연도
@@ -39,24 +39,15 @@
           <select id="startMonth"></select>
         </label>
 
-        <div class="remain-box">
-          <span>2026년 7월 기준 남은 개월수</span>
-          <strong id="remainingMonths">0개월</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="card bonus-rate-card">
-      <div class="section-heading">
-        <h2>우대금리</h2>
-        <p>만기까지 만족할 우대금리를 선택해주세요.</p>
-      </div>
-
-      <div class="bonus-rate-box">
         <label>
           우대금리 선택
           <select id="bonusRate"></select>
         </label>
+      </div>
+
+      <div class="remain-box remaining-summary-box">
+        <span>2026년 7월 기준 남은 개월수</span>
+        <strong id="remainingMonths">0개월</strong>
       </div>
     </section>
 
@@ -101,6 +92,22 @@
           </thead>
           <tbody id="paymentRows"></tbody>
         </table>
+      </div>
+    </section>
+
+    <section class="result">
+      <div class="result-highlight">
+        <span class="result-title">도약계좌 5년 만기 예상 수령액</span>
+        <strong class="maturity-amount" id="maturityTotal">0원</strong>
+
+        <div class="result-breakdown">
+          <div><span>총납입원금</span><b id="totalPayment">0원</b></div>
+          <div><span>총혜택</span><b id="totalBenefit">0원</b></div>
+          <div class="breakdown-detail"><span>└ 원금에 대한 이자</span><b id="principalInterest">0원</b></div>
+          <div class="breakdown-detail"><span>└ 정부기여금1 + 정부기여금2</span><b id="totalGov">0원</b></div>
+          <div class="breakdown-detail"><span>└ 정부기여금에 대한 이자</span><b id="govInterest">0원</b></div>
+          <div class="rate-row"><span>실질 연이율</span><b id="effectiveAnnualRate">0.00%</b></div>
+        </div>
       </div>
     </section>
 
@@ -152,28 +159,14 @@
       </p>
     </section>
 
-    <section class="result">
-      <div class="result-highlight">
-        <span class="result-title">도약계좌 5년 만기 예상 수령액</span>
-        <strong class="maturity-amount" id="maturityTotal">0원</strong>
-
-        <div class="result-breakdown">
-          <div><span>총납입원금</span><b id="totalPayment">0원</b></div>
-          <div><span>총혜택</span><b id="totalBenefit">0원</b></div>
-          <div class="breakdown-detail"><span>└ 원금에 대한 이자</span><b id="principalInterest">0원</b></div>
-          <div class="breakdown-detail"><span>└ 정부기여금1 + 정부기여금2</span><b id="totalGov">0원</b></div>
-          <div class="breakdown-detail"><span>└ 정부기여금에 대한 이자</span><b id="govInterest">0원</b></div>
-          <div class="rate-row"><span>실질 연이율</span><b id="effectiveAnnualRate">0.00%</b></div>
-        </div>
+    <div class="product-divider product-divider-with-description" aria-label="청년미래적금 영역">
+      <div class="product-divider-title">
+        <span>청년미래적금</span>
       </div>
-    </section>
+      <p>3년 동안 매월 같은 금액을 납입하는 기준입니다.</p>
+    </div>
 
     <section class="card future-savings-card">
-      <div class="section-heading">
-        <h2>청년미래적금 예상 결과</h2>
-      </div>
-      <p class="section-description">3년 동안 매월 같은 금액을 납입하는 기준입니다.</p>
-
       <div class="grid three future-savings-options">
         <label>
           월 납입금
@@ -193,8 +186,9 @@
           </select>
         </label>
       </div>
+    </section>
 
-      <div class="result future-result">
+    <section class="result future-result">
         <div class="result-highlight">
           <span class="result-title">청년미래적금 3년 만기 예상 수령액</span>
           <strong class="maturity-amount" id="futureMaturityTotal">0원</strong>
@@ -208,15 +202,13 @@
             <div class="rate-row"><span>실질 연이율</span><b id="futureEffectiveAnnualRate">0.00%</b></div>
           </div>
         </div>
-      </div>
     </section>
 
-    <section class="card comparison-card">
-      <div class="section-heading">
-        <h2>도약계좌 vs. 미래적금</h2>
-      </div>
+    <div class="product-divider comparison-divider" aria-label="상품 비교 영역">
+      <span>도약계좌 vs. 미래적금</span>
+    </div>
 
-      <div class="comparison-table-wrap">
+    <div class="comparison-table-wrap">
         <table class="comparison-table">
           <thead>
             <tr>
@@ -243,8 +235,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
-    </section>
+    </div>
   </main>
 
   <script src="script.js"></script>
