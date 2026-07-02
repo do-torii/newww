@@ -192,8 +192,6 @@ function renderRows() {
           ${createPaymentOptions()}
         </select>
       </td>
-      <td class="gov1">0원</td>
-      <td class="gov2">0원</td>
       <td class="gov-total">0원</td>
     `;
 
@@ -352,12 +350,10 @@ function updateAll() {
 
     const gov = calculateGov(payment, rule, paymentDate.year, paymentDate.month);
 
-    row.querySelector(".payment-round").textContent = `${index + 1}차`;
+    row.querySelector(".payment-round").textContent = `[${index + 1}차]`;
     row.querySelector(".payment-meta").textContent =
-      `${String(paymentDate.year).slice(-2)}년 ${paymentDate.month}월(${yearRound}년차)`;
+      `${String(paymentDate.year).slice(-2)}년 ${paymentDate.month}월`;
 
-    row.querySelector(".gov1").textContent = formatWon(gov.gov1);
-    row.querySelector(".gov2").textContent = formatWon(gov.gov2);
     row.querySelector(".gov-total").textContent = formatWon(gov.total);
 
     totalPayment += payment;

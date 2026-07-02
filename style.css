@@ -435,15 +435,15 @@ th:nth-child(n + 3) {
 }
 
 .payment-round {
-  display: block;
+  display: inline;
   font-size: 14px;
 }
 
 .payment-meta {
-  display: block;
-  margin-top: 3px;
+  display: inline;
+  margin-left: 4px;
   color: #777;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.25;
   white-space: nowrap;
 }
@@ -737,8 +737,6 @@ th:nth-child(n + 3) {
     font-size: 12px;
   }
 
-  .gov1,
-  .gov2,
   .gov-total {
     font-size: 14px;
     white-space: nowrap;
