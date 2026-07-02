@@ -168,6 +168,13 @@ label {
   font-weight: 600;
 }
 
+.field-description {
+  color: #777;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
 select {
   padding: 10px;
   border: 1px solid #ddd;

@@ -35,7 +35,6 @@ const TOTAL_MONTHS = 60;
 
 const startYearEl = document.getElementById("startYear");
 const startMonthEl = document.getElementById("startMonth");
-const remainingMonthsEl = document.getElementById("remainingMonths");
 const incomeYearsEl = document.getElementById("incomeYears");
 const bonusRateEl = document.getElementById("bonusRate");
 const bulkPaymentEl = document.getElementById("bulkPayment");
@@ -334,7 +333,6 @@ function updateAll() {
   const remainingMonths = getRemainingMonths();
   const elapsedMonths = TOTAL_MONTHS - remainingMonths;
 
-  remainingMonthsEl.textContent = `${remainingMonths}개월`;
   earlyElapsedMonthsEl.textContent = `${elapsedMonths}개월`;
   earlyRemainingMonthsEl.textContent = `${remainingMonths}개월`;
 
