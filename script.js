@@ -52,6 +52,8 @@ const govInterestEl = document.getElementById("govInterest");
 const effectiveAnnualRateEl = document.getElementById("effectiveAnnualRate");
 
 const earlyMaturityTotalEl = document.getElementById("earlyMaturityTotal");
+const earlyElapsedMonthsEl = document.getElementById("earlyElapsedMonths");
+const earlyRemainingMonthsEl = document.getElementById("earlyRemainingMonths");
 const earlyTotalPaymentEl = document.getElementById("earlyTotalPayment");
 const earlyTotalBenefitEl = document.getElementById("earlyTotalBenefit");
 const remainingRequiredPaymentEl = document.getElementById("remainingRequiredPayment");
@@ -74,12 +76,21 @@ const futureGovInterestEl = document.getElementById("futureGovInterest");
 const futureMaturityTotalEl = document.getElementById("futureMaturityTotal");
 const futureEffectiveAnnualRateEl = document.getElementById("futureEffectiveAnnualRate");
 
-const comparisonLeapPrincipalEl = document.getElementById("comparisonLeapPrincipal");
+const comparisonLeapRemainingMonthsEl = document.getElementById("comparisonLeapRemainingMonths");
+const comparisonLeapRequiredPaymentEl = document.getElementById("comparisonLeapRequiredPayment");
 const comparisonLeapBenefitEl = document.getElementById("comparisonLeapBenefit");
-const comparisonLeapRateEl = document.getElementById("comparisonLeapRate");
-const comparisonFuturePrincipalEl = document.getElementById("comparisonFuturePrincipal");
+const comparisonFutureRemainingMonthsEl = document.getElementById("comparisonFutureRemainingMonths");
+const comparisonFutureRequiredPaymentEl = document.getElementById("comparisonFutureRequiredPayment");
 const comparisonFutureBenefitEl = document.getElementById("comparisonFutureBenefit");
-const comparisonFutureRateEl = document.getElementById("comparisonFutureRate");
+
+let currentEarlyBenefit = 0;
+let currentFutureBenefit = 0;
+
+function updateComparisonFutureBenefit() {
+  comparisonFutureBenefitEl.textContent = formatWon(
+    currentEarlyBenefit + currentFutureBenefit
+  );
+}
 
 function formatWon(value) {
   return Math.round(value).toLocaleString("ko-KR") + "원";
@@ -326,6 +337,8 @@ function updateAll() {
   const elapsedMonths = TOTAL_MONTHS - remainingMonths;
 
   remainingMonthsEl.textContent = `${remainingMonths}개월`;
+  earlyElapsedMonthsEl.textContent = `${elapsedMonths}개월`;
+  earlyRemainingMonthsEl.textContent = `${remainingMonths}개월`;
 
   const rows = paymentRowsEl.querySelectorAll("tr");
 
@@ -372,6 +385,8 @@ function updateAll() {
   const retainedGovInterest = earlyGovInterest * govRetentionRate;
   const earlyTotalBenefit =
     earlyPrincipalInterest + retainedGov + retainedGovInterest;
+  currentEarlyBenefit = earlyTotalBenefit;
+  updateComparisonFutureBenefit();
   const additionalPrincipalInterest = Math.max(
     0, totalPrincipalInterest - earlyPrincipalInterest
   );
@@ -414,11 +429,11 @@ function updateAll() {
     : 0;
 
   effectiveAnnualRateEl.textContent = `${effectiveAnnualRate.toFixed(2)}%`;
-  comparisonLeapPrincipalEl.textContent = formatWon(totalPayment);
+  comparisonLeapRemainingMonthsEl.textContent = `${remainingMonths}개월`;
+  comparisonLeapRequiredPaymentEl.textContent = formatWon(remainingRequiredPayment);
   comparisonLeapBenefitEl.textContent = formatWon(
     totalPrincipalInterest + totalGov + totalGovInterest
   );
-  comparisonLeapRateEl.textContent = `${effectiveAnnualRate.toFixed(2)}%`;
 }
 
 function updateFutureSavings() {
@@ -439,6 +454,7 @@ function updateFutureSavings() {
 
   const totalPayment = monthlyPayment * 36;
   const totalGovSupport = monthlySupport * 36;
+  currentFutureBenefit = principalInterest + totalGovSupport + govInterest;
   const maturityTotal =
     totalPayment + principalInterest + totalGovSupport + govInterest;
   const effectiveAnnualRate = totalPayment > 0
@@ -454,11 +470,9 @@ function updateFutureSavings() {
   futureGovInterestEl.textContent = formatWon(govInterest);
   futureMaturityTotalEl.textContent = formatWon(maturityTotal);
   futureEffectiveAnnualRateEl.textContent = `${effectiveAnnualRate.toFixed(2)}%`;
-  comparisonFuturePrincipalEl.textContent = formatWon(totalPayment);
-  comparisonFutureBenefitEl.textContent = formatWon(
-    principalInterest + totalGovSupport + govInterest
-  );
-  comparisonFutureRateEl.textContent = `${effectiveAnnualRate.toFixed(2)}%`;
+  comparisonFutureRemainingMonthsEl.textContent = "36개월";
+  comparisonFutureRequiredPaymentEl.textContent = formatWon(totalPayment);
+  updateComparisonFutureBenefit();
 }
 
 initOptions();

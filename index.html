@@ -124,6 +124,11 @@
           <small>(비과세·우대금리·정부기여금을 패널티 없이 100% 반영)</small>
         </div>
 
+        <div class="early-month-summary">
+          <div><span>그동안 납입 개월수</span><strong id="earlyElapsedMonths">0개월</strong></div>
+          <div><span>앞으로 남은 개월수</span><strong id="earlyRemainingMonths">0개월</strong></div>
+        </div>
+
         <div class="early-paid-principal"><span>그동안 납입한 원금</span><strong id="earlyTotalPayment">0원</strong></div>
         <div class="remaining-payment-summary"><span>만기까지 필요한 납입액</span><strong id="remainingRequiredPayment">0원</strong></div>
 
@@ -213,25 +218,31 @@
           <thead>
             <tr>
               <th>구분</th>
-              <th>청년도약계좌</th>
-              <th>청년미래적금</th>
+              <th>도약계좌 유지</th>
+              <th>도약 -> 미래</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th>총납입원금</th>
-              <td id="comparisonLeapPrincipal">0원</td>
-              <td id="comparisonFuturePrincipal">0원</td>
+              <th>남은 개월</th>
+              <td id="comparisonLeapRemainingMonths">0개월</td>
+              <td id="comparisonFutureRemainingMonths">0개월</td>
+            </tr>
+            <tr>
+              <th>앞으로 필요한 금액</th>
+              <td id="comparisonLeapRequiredPayment">0원</td>
+              <td id="comparisonFutureRequiredPayment">0원</td>
             </tr>
             <tr>
               <th>총혜택</th>
-              <td id="comparisonLeapBenefit">0원</td>
-              <td id="comparisonFutureBenefit">0원</td>
-            </tr>
-            <tr>
-              <th>실질 연이율</th>
-              <td id="comparisonLeapRate">0.00%</td>
-              <td id="comparisonFutureRate">0.00%</td>
+              <td class="comparison-benefit-with-note">
+                <span id="comparisonLeapBenefit">0원</span>
+                <small>갈아타기 없이 만기 때 받는 혜택</small>
+              </td>
+              <td class="comparison-benefit-with-note">
+                <span id="comparisonFutureBenefit">0원</span>
+                <small>갈아타기 때 받는 혜택 + 미래 혜택</small>
+              </td>
             </tr>
           </tbody>
         </table>

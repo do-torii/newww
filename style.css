@@ -271,6 +271,29 @@ select {
   box-shadow: 0 8px 22px rgba(45, 86, 59, 0.18);
 }
 
+.early-summary-grid .early-month-summary {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  background: transparent;
+}
+
+.early-month-summary > div {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f2f6f1;
+}
+
+.early-month-summary > div:first-child {
+  background: #d3e6d5;
+}
+
+.early-month-summary strong {
+  font-size: 18px;
+}
+
 .early-summary-grid .early-benefit-summary {
   grid-column: 1 / -1;
   padding: 0;
@@ -618,6 +641,15 @@ th:nth-child(n + 3) {
 
 .comparison-table tbody td {
   font-weight: 700;
+}
+
+.comparison-benefit-with-note small {
+  display: block;
+  margin-top: 4px;
+  color: #718075;
+  font-size: 11px;
+  font-weight: 400;
+  white-space: normal;
 }
 
 .comparison-table tbody td:nth-child(2) {
