@@ -387,7 +387,7 @@ select {
 .early-cancel-note {
   margin: 12px 2px 0;
   color: #777;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
 }
 
@@ -423,11 +423,11 @@ th {
 
 th:first-child,
 .payment-info {
-  width: 25%;
+  width: 24%;
 }
 
 th:nth-child(2) {
-  width: 17%;
+  width: 18%;
 }
 
 th:nth-child(n + 3) {

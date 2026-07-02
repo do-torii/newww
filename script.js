@@ -350,7 +350,7 @@ function updateAll() {
 
     const gov = calculateGov(payment, rule, paymentDate.year, paymentDate.month);
 
-    row.querySelector(".payment-round").textContent = `[${index + 1}차]`;
+    row.querySelector(".payment-round").textContent = `${index + 1}차`;
     row.querySelector(".payment-meta").textContent =
       `${String(paymentDate.year).slice(-2)}년 ${paymentDate.month}월`;
 
