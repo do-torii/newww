@@ -426,6 +426,11 @@ th:first-child,
   width: 24%;
 }
 
+.payment-info {
+  padding-left: 18px;
+  text-align: left;
+}
+
 th:nth-child(2) {
   width: 18%;
 }
