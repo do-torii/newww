@@ -11,7 +11,7 @@
     <header class="page-intro">
       <p class="intro-label">청년도약계좌 갈아탈까?</p>
       <h1>청도계 vs. 청미적</h1>
-      <p class="intro-description">변동금리를 반영해 청년도약계좌 예상 만기 금액을 계산해요!</p>
+      <p class="intro-description">변동금리를 반영한 청년도약계좌 예상 만기 금액을 계산해요!</p>
     </header>
 
     <aside class="notice-box" aria-label="이용 안내">
@@ -61,7 +61,7 @@
     <section class="card">
       <div class="section-heading">
         <h2>월별 납입금 / 정부기여금</h2>
-        <p>매월 1일 납입한다고 가정해 이자를 계산합니다.</p>
+        <p>아직 입급하지 않은 날짜에는 예상 납입액 선택하세요.</p>
       </div>
 
       <div class="payment-mode-box">
@@ -94,12 +94,12 @@
 
     <section class="result">
       <div class="result-highlight">
-        <span class="result-title">도약계좌 5년 만기 예상 수령액</span>
+        <span class="result-title">청년도약계좌 5년 만기 예상 수령액</span>
         <strong class="maturity-amount" id="maturityTotal">0원</strong>
 
         <div class="result-breakdown">
           <div><span>총납입원금</span><b id="totalPayment">0원</b></div>
-          <div><span>총혜택</span><b id="totalBenefit">0원</b></div>
+          <div><span>총 혜택</span><b id="totalBenefit">0원</b></div>
           <div class="breakdown-detail"><span>└ 원금에 대한 이자</span><b id="principalInterest">0원</b></div>
           <div class="breakdown-detail"><span>└ 정부기여금1 + 정부기여금2</span><b id="totalGov">0원</b></div>
           <div class="breakdown-detail"><span>└ 정부기여금에 대한 이자</span><b id="govInterest">0원</b></div>
@@ -111,7 +111,7 @@
     <section class="card early-cancel-card">
       <div class="section-heading">
         <h2>2026년 7월 기준</h2>
-        <p>*2026년 6월 납입분까지 계산</p>
+        <p>*2026년 7월 납입분까지 계산</p>
       </div>
 
       <div class="early-summary-grid">
@@ -132,7 +132,7 @@
         <div class="early-benefit-summary">
           <div class="early-benefit-comparison">
             <div class="early-benefit-column">
-              <span>현재까지 총혜택</span>
+              <span>현재까지 총 혜택</span>
               <strong id="earlyTotalBenefit">0원</strong>
 
               <div class="early-benefit-details">
@@ -197,7 +197,7 @@
 
           <div class="result-breakdown">
             <div><span>총납입원금</span><b id="futureTotalPayment">0원</b></div>
-            <div><span>총혜택</span><b id="futureTotalBenefit">0원</b></div>
+            <div><span>총 혜택</span><b id="futureTotalBenefit">0원</b></div>
             <div class="breakdown-detail"><span>└ 원금에 대한 이자</span><b id="futurePrincipalInterest">0원</b></div>
             <div class="breakdown-detail"><span>└ 정부지원금</span><b id="futureGovSupport">0원</b></div>
             <div class="breakdown-detail"><span>└ 정부지원금에 대한 이자</span><b id="futureGovInterest">0원</b></div>
@@ -206,8 +206,11 @@
         </div>
     </section>
 
-    <div class="product-divider comparison-divider" aria-label="상품 비교 영역">
-      <span>도약계좌 vs. 미래적금</span>
+    <div class="product-divider product-divider-with-description comparison-divider" aria-label="상품 비교 영역">
+      <div class="product-divider-title">
+        <span>도약계좌 vs. 미래적금</span>
+      </div>
+      <p>2026년 7월분까지 납입했다고 가정했을 때,</p>
     </div>
 
     <div class="comparison-table-wrap">
@@ -221,9 +224,14 @@
           </thead>
           <tbody>
             <tr>
-              <th>남은 개월</th>
+              <th>남은 기간</th>
               <td id="comparisonLeapRemainingMonths">0개월</td>
               <td id="comparisonFutureRemainingMonths">0개월</td>
+            </tr>
+            <tr>
+              <th>만기 원금</th>
+              <td id="comparisonLeapMaturityPrincipal">0원</td>
+              <td id="comparisonFutureMaturityPrincipal">0원</td>
             </tr>
             <tr>
               <th>앞으로 필요한 금액</th>
@@ -231,14 +239,14 @@
               <td id="comparisonFutureRequiredPayment">0원</td>
             </tr>
             <tr>
-              <th>총혜택</th>
+              <th>총 혜택</th>
               <td class="comparison-benefit-with-note">
                 <span id="comparisonLeapBenefit">0원</span>
                 <small>갈아타기 없이 만기 때 받는 혜택</small>
               </td>
               <td class="comparison-benefit-with-note">
                 <span id="comparisonFutureBenefit">0원</span>
-                <small>갈아타기 때 받는 혜택 + 미래 혜택</small>
+                <small>갈아타기 때 받는 혜택 + 미래적금 혜택</small>
               </td>
             </tr>
           </tbody>

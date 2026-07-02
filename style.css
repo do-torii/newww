@@ -646,7 +646,7 @@ th:nth-child(n + 3) {
 
 .comparison-table tbody th {
   position: static;
-  background: #eef2ed;
+  background: #e3eee4;
   color: #334a39;
   font-weight: 700;
 }
@@ -673,7 +673,7 @@ th:nth-child(n + 3) {
 }
 
 .comparison-table tbody tr:last-child td {
-  color: #2d6a42;
+  color: #d13f3f;
   font-size: 16px;
 }
 

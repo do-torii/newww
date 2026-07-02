@@ -76,9 +76,11 @@ const futureMaturityTotalEl = document.getElementById("futureMaturityTotal");
 const futureEffectiveAnnualRateEl = document.getElementById("futureEffectiveAnnualRate");
 
 const comparisonLeapRemainingMonthsEl = document.getElementById("comparisonLeapRemainingMonths");
+const comparisonLeapMaturityPrincipalEl = document.getElementById("comparisonLeapMaturityPrincipal");
 const comparisonLeapRequiredPaymentEl = document.getElementById("comparisonLeapRequiredPayment");
 const comparisonLeapBenefitEl = document.getElementById("comparisonLeapBenefit");
 const comparisonFutureRemainingMonthsEl = document.getElementById("comparisonFutureRemainingMonths");
+const comparisonFutureMaturityPrincipalEl = document.getElementById("comparisonFutureMaturityPrincipal");
 const comparisonFutureRequiredPaymentEl = document.getElementById("comparisonFutureRequiredPayment");
 const comparisonFutureBenefitEl = document.getElementById("comparisonFutureBenefit");
 
@@ -255,7 +257,8 @@ function getRemainingMonths() {
 
   const monthsPassed =
     (CHECK_DATE.year - startYear) * 12 +
-    (CHECK_DATE.month - startMonth);
+    (CHECK_DATE.month - startMonth) +
+    1;
 
   const remaining = TOTAL_MONTHS - monthsPassed;
 
@@ -424,6 +427,7 @@ function updateAll() {
 
   effectiveAnnualRateEl.textContent = `${effectiveAnnualRate.toFixed(2)}%`;
   comparisonLeapRemainingMonthsEl.textContent = `${remainingMonths}개월`;
+  comparisonLeapMaturityPrincipalEl.textContent = formatWon(totalPayment);
   comparisonLeapRequiredPaymentEl.textContent = formatWon(remainingRequiredPayment);
   comparisonLeapBenefitEl.textContent = formatWon(
     totalPrincipalInterest + totalGov + totalGovInterest
@@ -465,6 +469,7 @@ function updateFutureSavings() {
   futureMaturityTotalEl.textContent = formatWon(maturityTotal);
   futureEffectiveAnnualRateEl.textContent = `${effectiveAnnualRate.toFixed(2)}%`;
   comparisonFutureRemainingMonthsEl.textContent = "36개월";
+  comparisonFutureMaturityPrincipalEl.textContent = formatWon(totalPayment);
   comparisonFutureRequiredPaymentEl.textContent = formatWon(totalPayment);
   updateComparisonFutureBenefit();
 }
