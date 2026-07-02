@@ -279,7 +279,7 @@ select {
 }
 
 .early-summary-grid .early-paid-principal {
-  background: #dcebdd;
+  background: #d3e6d5;
 }
 
 .early-summary-grid .remaining-payment-summary,
@@ -309,7 +309,7 @@ select {
   padding: 14px;
   border: 1px solid #cbdccb;
   border-radius: 12px;
-  background: #dcebdd;
+  background: #d3e6d5;
 }
 
 .early-benefit-column > strong {
